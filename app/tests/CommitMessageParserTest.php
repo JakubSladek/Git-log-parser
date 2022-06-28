@@ -30,4 +30,21 @@ final class CommitMessageParserTest extends TestCase {
 		$this->assertSame('Refactoring autoemail modulu.', $commitMessageParsed->getTodos()[0]);
 		$this->assertSame('Refactoring hlavního modulu.', $commitMessageParsed->getTodos()[1]);
 	}
+	
+	public function testParseVol2() {
+		$commitMessage = "[add] [feature] @core #123456
+		* Export objednávek cronem co hodinu.
+		* Export probíhá v dávkách.
+		* ...
+		BC: Refaktorovaný BaseImporter.
+		BC: ...
+		Feature: Nový logger.
+		TODO: Refactoring autoemail modulu.
+		TODO: Refactoring hlavního modulu.";
+		
+		$this->expectExceptionMessage('First line does not match the pattern!');
+		
+		$commitMessageParser = new CommitMessageParser();
+		$commitMessageParsed = $commitMessageParser->parse($commitMessage);
+	}
 }
