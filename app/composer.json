@@ -1,0 +1,18 @@
+{
+    "name": "jakubsladek/app",
+    "autoload": {
+        "psr-4": {
+            "Jakubsladek\\App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jakubsladek",
+            "email": "jsladek@webdevel.cz"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^9.5",
+        "tightenco/collect": "^9.16"
+    }
+}
