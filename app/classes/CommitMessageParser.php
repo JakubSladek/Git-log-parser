@@ -48,6 +48,13 @@ class CommitMessageParser implements CommitMessageParserInterface {
 			->values()
 			->toArray();
 		
-		return new CommitMessage($title, $taskId, $tags, $details, $bcBreaks, $todos);
+		return new CommitMessage(
+			title: $title,
+			taskId: $taskId,
+			tags: $tags,
+			details: $details,
+			bcBreaks: $bcBreaks,
+			todos: $todos,
+		);
 	}
 }
